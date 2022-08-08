@@ -20,7 +20,7 @@ it('can retrieve a specific user', function () {
             'email' => $user->email,
             'created_at' => $user->created_at->format('d/m/Y'),
             'updated_at' => $user->updated_at->format('d/m/Y'),
-        ]
+        ],
     ];
 
     $response->assertStatus(200)->assertJson($data);
@@ -32,22 +32,20 @@ it('can create a user', function () {
     $response = $this->postJson('/api/users', $attributes);
 
     $response->assertStatus(201);
-
 });
 
 it('can update a user', function () {
     $user = User::factory()->create();
 
     $updateUser = [
-        'name' => "Ahmed Ibrahim",
-        'email' => "ahmed.ibrahim@ansie.dj",
-        'password' => bcrypt("password")
+        'name' => 'Ahmed Ibrahim',
+        'email' => 'ahmed.ibrahim@ansie.dj',
+        'password' => bcrypt('password'),
     ];
 
     $response = $this->putJson("/api/users/{$user->id}", $updateUser);
 
     $response->assertStatus(201);
-
 });
 
 it('can delete a user', function () {

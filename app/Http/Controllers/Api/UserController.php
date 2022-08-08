@@ -7,9 +7,6 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
@@ -28,7 +25,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreUserRequest $request
+     * @param  StoreUserRequest  $request
      * @return JsonResponse
      */
     public function store(StoreUserRequest $request): JsonResponse
@@ -46,7 +43,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param User $user
+     * @param  User  $user
      * @return UserResource
      */
     public function show(User $user): UserResource
@@ -57,8 +54,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param StoreUserRequest $request
-     * @param User $user
+     * @param  StoreUserRequest  $request
+     * @param  User  $user
      * @return JsonResponse
      */
     public function update(StoreUserRequest $request, User $user): JsonResponse
@@ -66,7 +63,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
         ]);
 
         return response()->json($user, 201);
@@ -75,7 +72,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param User $user
+     * @param  User  $user
      * @return Response
      */
     public function destroy(User $user): Response

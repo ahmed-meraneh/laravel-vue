@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel Vue</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('dist/css/app.css' )}}"/>
 </head>
-<body>
-<div id="app"></div>
+<body class="login">
+    <div id="app"></div>
 </body>
 </html>
