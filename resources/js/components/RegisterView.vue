@@ -9,21 +9,22 @@
                 <FormField
                     :error="errors.name"
                     placeholder="Nom"
-                    :model="form.name"
+                    v-model="form.name"
                 />
 
                 <FormField
                     class="mt-4"
                     :error="errors.email"
                     placeholder="Email"
-                    :model="form.email"
+                    v-model="form.email"
                 />
 
                 <FormField
+                    type="password"
                     class="mt-4"
                     :error="errors.password"
-                    placeholder="Nom"
-                    :model="form.password"
+                    placeholder="Mot de passe"
+                    v-model="form.password"
                 />
             </div>
             <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">

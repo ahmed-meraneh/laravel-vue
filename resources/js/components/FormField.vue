@@ -5,23 +5,23 @@
                 'border-theme-24': error,
            }, $attrs.class]"
            :placeholder="placeholder"
-           v-model="model"
-           required
+           :value="modelValue"
+           @input="$emit('update:modelValue', $event.target.value)"
     >
     <div class="mt-1 text-theme-24" v-if="error">{{ error }}</div>
 </template>
 
 <script setup>
 defineProps({
+    modelValue: {
+        type: String,
+        default: ""
+    },
     type: {
         type: String,
         default: 'text'
     },
     error: String,
     placeholder: String,
-    model: {
-        type: String,
-        required: true
-    },
 })
 </script>
